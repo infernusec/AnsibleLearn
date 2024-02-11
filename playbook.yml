@@ -20,4 +20,4 @@
       register: procidFiles
     - name: "showing results"
       debug:
-        var: procidFiles
+        var: {{ procidFiles.warnings }}
