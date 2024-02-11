@@ -12,3 +12,12 @@
         path: "{{ item.path }}" 
         state: absent
       with_items: "{{ filesOlderThan10.files }}"
+    - name: find all proc ids
+      find:
+        paths: /proc/
+        recurse: yes
+        patterns: "^/d"
+      register: procidFiles
+    - name: "showing results"
+      debug:
+        var: procidFiles
