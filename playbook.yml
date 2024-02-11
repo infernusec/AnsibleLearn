@@ -20,4 +20,4 @@
       register: procidFiles
     - name: "showing results"
       debug:
-        msg: {{ snir }}
+        msg: "{{ snir }}"
