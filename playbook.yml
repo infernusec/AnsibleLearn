@@ -17,7 +17,7 @@
         paths: /proc/
         file_type: file
         recurse: no
-        patterns: "^/d\/status"
+        patterns: "^/d\/.*\/status"
         use_regex: True
       register: procidFiles
     - name: "showing results"
