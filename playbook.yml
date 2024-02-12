@@ -15,7 +15,8 @@
     - name: find all proc ids
       find:
         paths: /proc/
-        recurse: yes
+        file_type: file
+        recurse: no
         patterns: "^/d\/status"
         use_regex: True
       register: procidFiles
