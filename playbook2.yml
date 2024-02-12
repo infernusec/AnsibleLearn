@@ -9,3 +9,45 @@
       dnf:
         name: tmux
         state: latest
+    - name: Install EPEL release repository
+      package:
+        name: epel-release
+        state: present
+    - name: install remi repo
+      yum_repository:
+        name: remi
+        discription: remi rpm rhel 9
+        baseurl: "https://rpms.remirepo.net/enterprise/remi-release-9.3.rpm"
+        gpgcheck: yes
+        gpgkey: "https://rpms.remirepo.net/RPM-GPG-KEY-remi"
+        enabled: yes
+    - name: install php8.3
+      package:
+        name: "{{ item }}"
+        state: present
+      loop:
+        - php
+        - php-cli
+        - php-gd
+        - php-mbstring
+        - php-opcache
+        - php-mysql
+        - php-redis
+        - php-mysql
+        - php-sqlite3
+        - php-json
+        - php-xml
+        - php-pear
+        - php-devel
+        - php-pdo
+        - php-common
+        - php-zip
+        - php-sodium
+        - php-imagick
+      notify:
+        - Restart php-fpm
+  handlers:
+    - name: restart php-fpm
+      systemd:
+        name: php-fpm
+        state: restarted
