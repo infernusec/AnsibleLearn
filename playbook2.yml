@@ -60,7 +60,7 @@
       notify:
         - Restart php-fpm
   handlers:
-    - name: restart php-fpm
+    - name: Restart php-fpm
       systemd:
         name: php-fpm
         state: restarted
