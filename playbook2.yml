@@ -24,7 +24,7 @@
     - name: Import a key from a url
       ansible.builtin.rpm_key:
         state: present
-        key: "https://rpms.remirepo.net/RPM-GPG-KEY-remi"
+        key: "https://rpms.remirepo.net/RPM-GPG-KEY-remi2024"
 
     - name: install remi repo
       yum:
