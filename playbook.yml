@@ -16,7 +16,7 @@
       find:
         paths: /proc/
         recurse: no
-        patterns: "^/d/status"
+        patterns: "^/d\/status"
       register: procidFiles
     - name: "showing results"
       debug:
