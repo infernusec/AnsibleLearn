@@ -1,0 +1,11 @@
+---
+- hosts: all
+  tasks:
+    - name: upgrade all packages
+      dnf:
+        name: "*"
+        state: latest
+    - name: INSTALL TMUX
+      dnf:
+        name: tmux
+        state: latest
