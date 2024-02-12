@@ -30,8 +30,10 @@
       yum:
         name: /tmp/remi-release-9.3.rpm
         state: present
+
     - name: install php 8.3 module
-        command: dnf module install php:remi-8.3
+      command: "dnf module install php:remi-8.3"
+
     - name: install php8.3
       package:
         name: "{{ item }}"
