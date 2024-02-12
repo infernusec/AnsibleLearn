@@ -1,0 +1,9 @@
+- fail:
+  msg: "limit is undefined"
+  run_once: true
+- include: pre-install.yml
+- include: install_cat.yml
+  with_dequence: start=1 count={{ inst_num }}
+  vars:
+    - instance: "{{ item | int }}"
+- include: post-install.yml
