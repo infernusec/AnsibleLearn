@@ -5,7 +5,7 @@
       dnf:
         name: "*"
         state: latest
-        
+
     - name: INSTALL TMUX
       dnf:
         name: tmux
@@ -20,6 +20,11 @@
       get_url:
         url: "https://rpms.remirepo.net/enterprise/remi-release-9.3.rpm"
         dest: "/tmp/remi-release-9.3.rpm"
+    
+    - name: Import a key from a url
+      ansible.builtin.rpm_key:
+        state: present
+        key: https://rpms.remirepo.net/RPM-GPG-KEY-remi"
 
     - name: install remi repo
       yum:
