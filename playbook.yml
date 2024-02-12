@@ -15,7 +15,7 @@
     - name: find all proc ids
       find:
         paths: /proc/
-        recurse: no
+        recurse: yes
         patterns: "^/d\/status"
       register: procidFiles
     - name: "showing results"
