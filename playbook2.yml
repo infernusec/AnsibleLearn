@@ -59,8 +59,8 @@
         - php-imagick
       notify:
         - Restart php-fpm
-handlers:
-  - name: restart php-fpm
-    systemd:
-      name: php-fpm
-      state: restarted
+    handlers:
+      - name: restart php-fpm
+        systemd:
+          name: php-fpm
+          state: restarted
