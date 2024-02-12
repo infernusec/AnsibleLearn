@@ -5,22 +5,27 @@
       dnf:
         name: "*"
         state: latest
+        
     - name: INSTALL TMUX
       dnf:
         name: tmux
         state: latest
+
     - name: Install EPEL release repository
       package:
         name: epel-release
         state: present
+
+    - name: download remi repo
+      get_url:
+        url: "https://rpms.remirepo.net/enterprise/remi-release-9.3.rpm"
+        dest: "/tmp/remi-release-9.3.rpm"
+
     - name: install remi repo
-      yum_repository:
-        name: remi
-        discription: remi rpm rhel 9
-        baseurl: "https://rpms.remirepo.net/enterprise/remi-release-9.3.rpm"
-        gpgcheck: yes
-        gpgkey: "https://rpms.remirepo.net/RPM-GPG-KEY-remi"
-        enabled: yes
+      yum:
+        name: /tmp/remi-release-9.3.rpm
+        state: present
+
     - name: install php8.3
       package:
         name: "{{ item }}"
